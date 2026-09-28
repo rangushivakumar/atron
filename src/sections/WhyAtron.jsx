@@ -1,30 +1,12 @@
+import { Compass, MessageCircle, ShieldCheck, TrendingUp } from "lucide-react";
 import Container from "../components/Container";
 import SectionHeading from "../components/SectionHeading";
-
 const principles = [
-  ["01", "Business-first thinking", "We start with the problem, not the technology."],
-  ["02", "Clean, scalable engineering", "We build systems that are easier to maintain, extend and operate."],
-  ["03", "Clear communication", "You always know what is being built, why it matters and what comes next."],
-  ["04", "Built for real users", "Every decision is made around usability, performance and business outcomes."],
+  { icon: Compass, title: "Business-first", text: "We focus on what the product needs to achieve, not just the technology behind it." },
+  { icon: ShieldCheck, title: "Reliable engineering", text: "Clean, maintainable software built with long-term reliability in mind." },
+  { icon: MessageCircle, title: "Clear communication", text: "Straightforward communication from the first conversation to launch." },
+  { icon: TrendingUp, title: "Long-term thinking", text: "We build products that can evolve as your business grows." },
 ];
-
 export default function WhyAtron() {
-  return (
-    <section className="section why-section" id="why-atron">
-      <Container className="why-layout">
-        <div className="why-intro">
-          <SectionHeading label="Why Atron" title="Technology is only useful when it moves the business forward." />
-          <p className="why-note">Good digital products make meaningful work easier for both customers and the teams behind them.</p>
-        </div>
-        <div className="principles-list">
-          {principles.map(([number, title, description]) => (
-            <article className="principle-row" key={number}>
-              <span className="principle-number">{number}</span>
-              <div><h3>{title}</h3><p>{description}</p></div>
-            </article>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
+  return <section className="section why-section" id="about"><Container><div className="why-heading"><SectionHeading label="Why Atron" title="A partner for the next step in your business." /><p>Atron Technologies helps businesses turn ideas, outdated systems and operational challenges into modern digital products.</p></div><div className="principles-grid">{principles.map(({ icon: Icon, title, text }) => <article className="principle-card" key={title}><Icon size={19} strokeWidth={1.7} aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></Container></section>;
 }
