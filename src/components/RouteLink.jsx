@@ -1,3 +1,1 @@
-export function Link({ to, children, ...props }) {
-  return <a href={to} {...props}>{children}</a>;
-}
+export { Link } from "react-router-dom";
